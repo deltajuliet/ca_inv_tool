@@ -1,3 +1,3 @@
 class Scan < ActiveRecord::Base
-  attr_accessible :date, :finished, :imported, :title
+  attr_accessible :finished, :imported, :title
 end

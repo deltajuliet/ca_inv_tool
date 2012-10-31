@@ -1,9 +1,9 @@
 CaInvTool::Application.routes.draw do
+  resources :scans
+
   get "welcome/index"
 
   resources :scan_items
-
-  resources :scans
 
   resources :inventory_items
 

@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Date</th>
     <th>Finished</th>
     <th>Imported</th>
     <th></th>
@@ -14,7 +13,6 @@
 <% @scans.each do |scan| %>
   <tr>
     <td><%= scan.title %></td>
-    <td><%= scan.date %></td>
     <td><%= scan.finished %></td>
     <td><%= scan.imported %></td>
     <td><%= link_to 'Show', scan %></td>
@@ -27,3 +25,5 @@
 <br />
 
 <%= link_to 'New Scan', new_scan_path %>
+
+<p><%= link_to 'Go Home', welcome_index_path %></p>

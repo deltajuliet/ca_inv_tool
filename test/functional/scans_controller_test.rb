@@ -18,7 +18,7 @@ class ScansControllerTest < ActionController::TestCase
 
   test "should create scan" do
     assert_difference('Scan.count') do
-      post :create, :scan => { :date => @scan.date, :finished => @scan.finished, :imported => @scan.imported, :title => @scan.title }
+      post :create, :scan => { :finished => @scan.finished, :imported => @scan.imported, :title => @scan.title }
     end
 
     assert_redirected_to scan_path(assigns(:scan))
@@ -35,7 +35,7 @@ class ScansControllerTest < ActionController::TestCase
   end
 
   test "should update scan" do
-    put :update, :id => @scan, :scan => { :date => @scan.date, :finished => @scan.finished, :imported => @scan.imported, :title => @scan.title }
+    put :update, :id => @scan, :scan => { :finished => @scan.finished, :imported => @scan.imported, :title => @scan.title }
     assert_redirected_to scan_path(assigns(:scan))
   end
 
