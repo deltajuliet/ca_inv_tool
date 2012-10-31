@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @scan.title %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @scan.date %>
+</p>
+
+<p>
+  <b>Finished:</b>
+  <%= @scan.finished %>
+</p>
+
+<p>
+  <b>Imported:</b>
+  <%= @scan.imported %>
+</p>
+
+
+<%= link_to 'Edit', edit_scan_path(@scan) %> |
+<%= link_to 'Back', scans_path %>

@@ -1,0 +1,27 @@
+<h1>Listing scan_items</h1>
+
+<table>
+  <tr>
+    <th>Item sku</th>
+    <th>Quantity</th>
+    <th>In inventory</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @scan_items.each do |scan_item| %>
+  <tr>
+    <td><%= scan_item.item_sku %></td>
+    <td><%= scan_item.quantity %></td>
+    <td><%= scan_item.in_inventory %></td>
+    <td><%= link_to 'Show', scan_item %></td>
+    <td><%= link_to 'Edit', edit_scan_item_path(scan_item) %></td>
+    <td><%= link_to 'Destroy', scan_item, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Scan item', new_scan_item_path %>

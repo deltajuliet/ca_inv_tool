@@ -1,0 +1,29 @@
+<h1>Listing scans</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Date</th>
+    <th>Finished</th>
+    <th>Imported</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @scans.each do |scan| %>
+  <tr>
+    <td><%= scan.title %></td>
+    <td><%= scan.date %></td>
+    <td><%= scan.finished %></td>
+    <td><%= scan.imported %></td>
+    <td><%= link_to 'Show', scan %></td>
+    <td><%= link_to 'Edit', edit_scan_path(scan) %></td>
+    <td><%= link_to 'Destroy', scan, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Scan', new_scan_path %>

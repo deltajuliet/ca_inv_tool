@@ -1,4 +1,8 @@
 CaInvTool::Application.routes.draw do
+  resources :scan_items
+
+  resources :scans
+
   resources :inventory_items
 
   # The priority is based upon order of creation:
@@ -50,7 +54,7 @@ CaInvTool::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

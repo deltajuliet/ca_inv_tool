@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030192113) do
+ActiveRecord::Schema.define(:version => 20121031173736) do
 
   create_table "inventory_items", :force => true do |t|
     t.string   "auction_title"
@@ -35,6 +35,23 @@ ActiveRecord::Schema.define(:version => 20121030192113) do
     t.string   "classification"
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
+  end
+
+  create_table "scan_items", :force => true do |t|
+    t.string   "item_sku"
+    t.integer  "quantity"
+    t.boolean  "in_inventory"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "scans", :force => true do |t|
+    t.text     "title"
+    t.date     "date"
+    t.boolean  "finished"
+    t.boolean  "imported"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

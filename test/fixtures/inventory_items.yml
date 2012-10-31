@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  auction_title: MyString
+  inventory_number: MyString
+  total_quantity: 1
+  weight: 1.5
+  upc: MyString
+  asin: MyString
+  mpn: MyString
+  description: MyText
+  brand: MyString
+  starting_bid: 9.99
+  seller_cost: 9.99
+  buy_it_now_price: 9.99
+  retail_price: 9.99
+  channel_advisor_store_price: 9.99
+  second_chance_offer_price: 9.99
+  picture_urls: MyString
+  received_in_inventory: 1
+  labels: MyString
+  flag: MyString
+  classification: MyString
+
+two:
+  auction_title: MyString
+  inventory_number: MyString
+  total_quantity: 1
+  weight: 1.5
+  upc: MyString
+  asin: MyString
+  mpn: MyString
+  description: MyText
+  brand: MyString
+  starting_bid: 9.99
+  seller_cost: 9.99
+  buy_it_now_price: 9.99
+  retail_price: 9.99
+  channel_advisor_store_price: 9.99
+  second_chance_offer_price: 9.99
+  picture_urls: MyString
+  received_in_inventory: 1
+  labels: MyString
+  flag: MyString
+  classification: MyString

@@ -1,0 +1,29 @@
+<%= form_for(@scan_item) do |f| %>
+  <% if @scan_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scan_item.errors.count, "error") %> prohibited this scan_item from being saved:</h2>
+
+      <ul>
+      <% @scan_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :item_sku %><br />
+    <%= f.text_field :item_sku %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :in_inventory %><br />
+    <%= f.check_box :in_inventory %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
