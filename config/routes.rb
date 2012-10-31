@@ -7,6 +7,13 @@ CaInvTool::Application.routes.draw do
 
   resources :inventory_items
 
+  resources :uploads do
+    member do
+      get 'index'
+      post 'upload_file'
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
