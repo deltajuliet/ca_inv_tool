@@ -6,6 +6,7 @@ development:
   timeout: 5000
   username: gyg
   password: gyg
+  host: 127.0.0.1
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -18,6 +19,7 @@ test:
   timeout: 5000
   username: gyg
   password: gyg
+  host: 127.0.0.1
 
 production:
   adapter: postgresql
@@ -27,3 +29,4 @@ production:
   timeout: 5000
   username: gyg
   password: gyg
+  host: 127.0.0.1

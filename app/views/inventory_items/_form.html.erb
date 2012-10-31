@@ -1,0 +1,97 @@
+<%= form_for(@inventory_item) do |f| %>
+  <% if @inventory_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inventory_item.errors.count, "error") %> prohibited this inventory_item from being saved:</h2>
+
+      <ul>
+      <% @inventory_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :auction_title %><br />
+    <%= f.text_field :auction_title %>
+  </div>
+  <div class="field">
+    <%= f.label :inventory_number %><br />
+    <%= f.text_field :inventory_number %>
+  </div>
+  <div class="field">
+    <%= f.label :total_quantity %><br />
+    <%= f.number_field :total_quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %><br />
+    <%= f.text_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :upc %><br />
+    <%= f.text_field :upc %>
+  </div>
+  <div class="field">
+    <%= f.label :asin %><br />
+    <%= f.text_field :asin %>
+  </div>
+  <div class="field">
+    <%= f.label :mpn %><br />
+    <%= f.text_field :mpn %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :brand %><br />
+    <%= f.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :starting_bid %><br />
+    <%= f.text_field :starting_bid %>
+  </div>
+  <div class="field">
+    <%= f.label :seller_cost %><br />
+    <%= f.text_field :seller_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :buy_it_now_price %><br />
+    <%= f.text_field :buy_it_now_price %>
+  </div>
+  <div class="field">
+    <%= f.label :retail_price %><br />
+    <%= f.text_field :retail_price %>
+  </div>
+  <div class="field">
+    <%= f.label :channel_advisor_store_price %><br />
+    <%= f.text_field :channel_advisor_store_price %>
+  </div>
+  <div class="field">
+    <%= f.label :second_chance_offer_price %><br />
+    <%= f.text_field :second_chance_offer_price %>
+  </div>
+  <div class="field">
+    <%= f.label :picture_urls %><br />
+    <%= f.text_field :picture_urls %>
+  </div>
+  <div class="field">
+    <%= f.label :received_in_inventory %><br />
+    <%= f.number_field :received_in_inventory %>
+  </div>
+  <div class="field">
+    <%= f.label :labels %><br />
+    <%= f.text_field :labels %>
+  </div>
+  <div class="field">
+    <%= f.label :flag %><br />
+    <%= f.text_field :flag %>
+  </div>
+  <div class="field">
+    <%= f.label :classification %><br />
+    <%= f.text_field :classification %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

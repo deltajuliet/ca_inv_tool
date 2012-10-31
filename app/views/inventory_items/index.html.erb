@@ -1,0 +1,61 @@
+<h1>Listing inventory_items</h1>
+
+<table>
+  <tr>
+    <th>Auction title</th>
+    <th>Inventory number</th>
+    <th>Total quantity</th>
+    <th>Weight</th>
+    <th>Upc</th>
+    <th>Asin</th>
+    <th>Mpn</th>
+    <th>Description</th>
+    <th>Brand</th>
+    <th>Starting bid</th>
+    <th>Seller cost</th>
+    <th>Buy it now price</th>
+    <th>Retail price</th>
+    <th>Channel advisor store price</th>
+    <th>Second chance offer price</th>
+    <th>Picture urls</th>
+    <th>Received in inventory</th>
+    <th>Labels</th>
+    <th>Flag</th>
+    <th>Classification</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @inventory_items.each do |inventory_item| %>
+  <tr>
+    <td><%= inventory_item.auction_title %></td>
+    <td><%= inventory_item.inventory_number %></td>
+    <td><%= inventory_item.total_quantity %></td>
+    <td><%= inventory_item.weight %></td>
+    <td><%= inventory_item.upc %></td>
+    <td><%= inventory_item.asin %></td>
+    <td><%= inventory_item.mpn %></td>
+    <td><%= inventory_item.description %></td>
+    <td><%= inventory_item.brand %></td>
+    <td><%= inventory_item.starting_bid %></td>
+    <td><%= inventory_item.seller_cost %></td>
+    <td><%= inventory_item.buy_it_now_price %></td>
+    <td><%= inventory_item.retail_price %></td>
+    <td><%= inventory_item.channel_advisor_store_price %></td>
+    <td><%= inventory_item.second_chance_offer_price %></td>
+    <td><%= inventory_item.picture_urls %></td>
+    <td><%= inventory_item.received_in_inventory %></td>
+    <td><%= inventory_item.labels %></td>
+    <td><%= inventory_item.flag %></td>
+    <td><%= inventory_item.classification %></td>
+    <td><%= link_to 'Show', inventory_item %></td>
+    <td><%= link_to 'Edit', edit_inventory_item_path(inventory_item) %></td>
+    <td><%= link_to 'Destroy', inventory_item, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Inventory item', new_inventory_item_path %>

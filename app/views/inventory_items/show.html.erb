@@ -1,0 +1,105 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Auction title:</b>
+  <%= @inventory_item.auction_title %>
+</p>
+
+<p>
+  <b>Inventory number:</b>
+  <%= @inventory_item.inventory_number %>
+</p>
+
+<p>
+  <b>Total quantity:</b>
+  <%= @inventory_item.total_quantity %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%= @inventory_item.weight %>
+</p>
+
+<p>
+  <b>Upc:</b>
+  <%= @inventory_item.upc %>
+</p>
+
+<p>
+  <b>Asin:</b>
+  <%= @inventory_item.asin %>
+</p>
+
+<p>
+  <b>Mpn:</b>
+  <%= @inventory_item.mpn %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @inventory_item.description %>
+</p>
+
+<p>
+  <b>Brand:</b>
+  <%= @inventory_item.brand %>
+</p>
+
+<p>
+  <b>Starting bid:</b>
+  <%= @inventory_item.starting_bid %>
+</p>
+
+<p>
+  <b>Seller cost:</b>
+  <%= @inventory_item.seller_cost %>
+</p>
+
+<p>
+  <b>Buy it now price:</b>
+  <%= @inventory_item.buy_it_now_price %>
+</p>
+
+<p>
+  <b>Retail price:</b>
+  <%= @inventory_item.retail_price %>
+</p>
+
+<p>
+  <b>Channel advisor store price:</b>
+  <%= @inventory_item.channel_advisor_store_price %>
+</p>
+
+<p>
+  <b>Second chance offer price:</b>
+  <%= @inventory_item.second_chance_offer_price %>
+</p>
+
+<p>
+  <b>Picture urls:</b>
+  <%= @inventory_item.picture_urls %>
+</p>
+
+<p>
+  <b>Received in inventory:</b>
+  <%= @inventory_item.received_in_inventory %>
+</p>
+
+<p>
+  <b>Labels:</b>
+  <%= @inventory_item.labels %>
+</p>
+
+<p>
+  <b>Flag:</b>
+  <%= @inventory_item.flag %>
+</p>
+
+<p>
+  <b>Classification:</b>
+  <%= @inventory_item.classification %>
+</p>
+
+
+<%= link_to 'Edit', edit_inventory_item_path(@inventory_item) %> |
+<%= link_to 'Back', inventory_items_path %>
