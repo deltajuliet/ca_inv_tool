@@ -1,7 +1,8 @@
-<h1>File Upload</h1>
+<h1>Inventory File Upload</h1>
+<p>This will delete all of the inventory data currently in the database and add only what is uploaded.</p>
 <%= form_for @upload, :html => {:multipart => true} do |f|%>
 <p>
-  <%= f.file_field :uploads %>
+  <%= f.file_field :upload %>
   <%= f.submit 'Upload File' %>
 </p>
 <% end %>

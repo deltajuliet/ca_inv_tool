@@ -9,7 +9,7 @@ class UploadsController < ApplicationController
   end
   def create
     @upload = Upload.new
-    post = @upload.parse_inventory_file(params[:uploads])
-    render :text => "File has been uploaded successfully"
+    post = @upload.parse_inventory_file(params[:upload])
+    render :inline => "<p>File has been uploaded successfully<br /><br /><%= link_to 'Go Home', welcome_index_path %></p>"
   end
 end
