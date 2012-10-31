@@ -1,4 +1,6 @@
 CaInvTool::Application.routes.draw do
+  get "welcome/index"
+
   resources :scan_items
 
   resources :scans
