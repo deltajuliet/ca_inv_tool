@@ -1,0 +1,11 @@
+<h1>Inventory File Export</h1>
+<p>This will export all of the data from the selected scan batch. Type in the scan id to export:<br></p>
+
+<%= form_for @scan_batch_export do |f|%>
+<p>
+  <%= f.text_field :scan_id %>
+  <%= f.submit 'Generate File', disable_with: "Working..." %>
+</p>
+<% end %>
+<br />
+<%= link_to 'Go Home', welcome_index_path %>

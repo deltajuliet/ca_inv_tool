@@ -18,7 +18,7 @@ class ScansController < ApplicationController
     @scan_items = ScanItem.find_all_by_scan_id(@scan.id)
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # create.html.erb
       format.json { render :json => @scan }
     end
   end

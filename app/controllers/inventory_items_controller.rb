@@ -18,7 +18,7 @@ class InventoryItemsController < ApplicationController
     @inventory_item = InventoryItem.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # create.html.erb
       format.json { render :json => @inventory_item }
     end
   end

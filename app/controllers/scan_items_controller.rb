@@ -13,11 +13,13 @@ class ScanItemsController < ApplicationController
   # GET /scan_items/1
   # GET /scan_items/1.json
   def show
+    @scan_id = params["scan_id"]
     @scan_item = ScanItem.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # create.html.erb
       format.json { render :json => @scan_item }
+      format.csv {send_data @scan_item.to_csv(@scan_id)}
     end
   end
 
@@ -48,7 +50,6 @@ class ScanItemsController < ApplicationController
     @scan_id = params[:parent_scan_id].to_s.to_i
     already_scanned = false
 
-    puts "DAN " * 6
     scanned_sku = params["scan_item"]["item_sku"]
     scanned_items = ScanItem.find_all_by_scan_id(@scan_id)
 

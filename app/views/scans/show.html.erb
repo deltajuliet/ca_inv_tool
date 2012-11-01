@@ -35,6 +35,7 @@
 </table>
 
 <br />
-<%= link_to 'Scan In New Inventory', new_scan_item_path(:parent_scan_id => @scan.id) %> |
+<%= link_to 'Add/Scan In New Inventory', new_scan_item_path(:parent_scan_id => @scan.id) %> |
+<%# link to 'Download Export File', scan_batch_file_export_path %>
 <%= link_to 'Edit Scan Batch Details', edit_scan_path(@scan) %> |
-<%= link_to 'Back', scans_path %>
+<%= link_to 'Go Back to Scan Batch Main Page', scans_path %>

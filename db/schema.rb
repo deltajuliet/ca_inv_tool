@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121101020822) do
+ActiveRecord::Schema.define(:version => 20121101092848) do
 
   create_table "inventory_items", :force => true do |t|
     t.string   "auction_title"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(:version => 20121101020822) do
     t.string   "classification"
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
+  end
+
+  create_table "scan_batch_file_exports", :force => true do |t|
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "export_name"
+    t.integer  "scan_id"
   end
 
   create_table "scan_items", :force => true do |t|
