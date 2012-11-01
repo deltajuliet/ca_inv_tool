@@ -25,7 +25,7 @@
   <% @scan_items.each do |scan_item| %>
       <tr>
         <td><%= scan_item.item_sku %></td>
-        <td><%= scan_item.get_item_title %></td>
+        <td><%= ScanItem.get_item_title(scan_item.item_sku) %></td>
         <td><%= scan_item.quantity %></td>
         <td><%= scan_item.in_inventory %></td>
         <td><%= link_to 'Edit', edit_scan_item_path(scan_item) %></td>

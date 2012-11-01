@@ -92,10 +92,12 @@ h1.true{
     background-color: green;
     color: #ffffff;
     padding: 10px;
+    text-transform: none;
 }
 
 h1.false{
     background-color: red;
     color: #ffffff;
     padding: 10px;
+    text-transform: none;
 }
