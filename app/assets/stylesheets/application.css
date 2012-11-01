@@ -101,3 +101,15 @@ h1.false{
     padding: 10px;
     text-transform: none;
 }
+
+td.true{
+    background-color: green;
+    color: #ffffff;
+    text-transform: none;
+}
+
+td.false{
+    background-color: red;
+    color: #ffffff;
+    text-transform: none;
+}

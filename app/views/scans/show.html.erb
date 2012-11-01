@@ -27,7 +27,7 @@
         <td><%= scan_item.item_sku %></td>
         <td><%= ScanItem.get_item_title(scan_item.item_sku) %></td>
         <td><%= scan_item.quantity %></td>
-        <td><%= scan_item.in_inventory %></td>
+        <td class='<%= scan_item.in_inventory %>'><%= scan_item.in_inventory %></td>
         <td><%= link_to 'Edit', edit_scan_item_path(scan_item) %></td>
         <td><%= link_to 'Destroy', scan_item, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
       </tr>
@@ -36,6 +36,7 @@
 
 <br />
 <%= link_to 'Add/Scan In New Inventory', new_scan_item_path(:parent_scan_id => @scan.id) %> |
-<%# link to 'Download Export File', scan_batch_file_export_path %>
 <%= link_to 'Edit Scan Batch Details', edit_scan_path(@scan) %> |
-<%= link_to 'Go Back to Scan Batch Main Page', scans_path %>
+<%= link_to 'Go Back to Scan Batches', scans_path %> |
+<%= link_to 'Go to Export File Page', scan_batch_file_exports_path %> |
+<%= link_to 'Go Home', scans_path %>
