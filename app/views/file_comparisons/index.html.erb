@@ -1,0 +1,10 @@
+<h1>File Comparison</h1>
+<p>This compares a CA Inventory Export to a 'In Inventory' export. The page will refresh once the inventory is added.</p>
+<%= form_for @file_compare, :html => {:multipart => true} do |f|%>
+<p>
+  CA Inventory Export: <%= f.file_field :ca_inv_filename %><br/>
+  Scanned Inventory File: <%= f.file_field :scanned_inv_filename %><br/><br/>
+  <%= f.submit 'Upload Files', disable_with: "Working..."%>
+</p>
+<% end %>
+<%= link_to 'Go Home', welcome_index_path %>

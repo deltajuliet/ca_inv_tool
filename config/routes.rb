@@ -11,6 +11,8 @@ CaInvTool::Application.routes.draw do
 
   resources :scan_batch_file_exports
 
+  resources :file_comparisons
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

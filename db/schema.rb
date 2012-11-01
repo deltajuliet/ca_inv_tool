@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121101092848) do
+ActiveRecord::Schema.define(:version => 20121101191028) do
+
+  create_table "file_comparisons", :force => true do |t|
+    t.string   "ca_inv_filename"
+    t.string   "scanned_inv_filename"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
 
   create_table "inventory_items", :force => true do |t|
     t.string   "auction_title"

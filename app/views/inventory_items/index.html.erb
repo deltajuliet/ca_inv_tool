@@ -1,5 +1,7 @@
 <h1>Listing inventory_items</h1>
 
+<p><%= link_to 'Go Home', welcome_index_path %></p>
+
 <%= paginate @inventory_items %>
 
 <table>
@@ -58,6 +60,8 @@
 <% end %>
 </table>
 
+<br />
+<%= paginate @inventory_items %>
 <br />
 
 <%= link_to 'New Inventory item', new_inventory_item_path %>

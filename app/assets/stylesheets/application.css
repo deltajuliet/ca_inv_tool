@@ -63,6 +63,7 @@ ul, ol {
 
 a {
     color: #707070;
+    text-decoration-color: #707070;
 }
 
 a:hover {
