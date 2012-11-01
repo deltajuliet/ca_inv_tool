@@ -87,3 +87,15 @@ div {
 span.page{
     color: maroon;
 }
+
+h1.true{
+    background-color: green;
+    color: #ffffff;
+    padding: 10px;
+}
+
+h1.false{
+    background-color: red;
+    color: #ffffff;
+    padding: 10px;
+}

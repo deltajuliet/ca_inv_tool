@@ -15,6 +15,8 @@ class ScansController < ApplicationController
   def show
     @scan = Scan.find(params[:id])
 
+    @scan_items = ScanItem.find_all_by_scan_id(@scan.id)
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @scan }

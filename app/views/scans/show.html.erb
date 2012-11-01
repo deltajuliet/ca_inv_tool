@@ -1,30 +1,40 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
-  <%= @scan.title %>
+  <b>Batch ID:</b> <%= @scan.id %><br/>
+  <b>Title:</b> <%= @scan.title %><br/>
+  <b>Finished:</b> <%= @scan.finished %><br/>
+  <b>Imported:</b> <%= @scan.imported %><br/>
+  <b>Date Added:</b> <%= @scan.created_at %><br/>
+  <b>Last Updated:</b> <%= @scan.updated_at %><br/>
 </p>
 
-<p>
-  <b>Finished:</b>
-  <%= @scan.finished %>
-</p>
+<table>
+  <tr>
+    <th>Item Sku</th>
+    <th>Item Title</th>
+    <th>Quantity Recently Scanned</th>
+    <th>In Inventory?</th>
+    <th></th>
+    <th></th>
+  </tr>
 
-<p>
-  <b>Imported:</b>
-  <%= @scan.imported %>
-</p>
-
-<p>
-  <b>Date Added:</b>
-  <%= @scan.created_at %>
-</p>
-
-<p>
-  <b>Last Updated:</b>
-  <%= @scan.updated_at %>
-</p>
+  <h1 class='<%= @scan.last_in_inventory %>'><%= @scan.last_message %></h1>
 
 
-<%= link_to 'Edit', edit_scan_path(@scan) %> |
+  <% @scan_items.each do |scan_item| %>
+      <tr>
+        <td><%= scan_item.item_sku %></td>
+        <td><%= scan_item.get_item_title %></td>
+        <td><%= scan_item.quantity %></td>
+        <td><%= scan_item.in_inventory %></td>
+        <td><%= link_to 'Edit', edit_scan_item_path(scan_item) %></td>
+        <td><%= link_to 'Destroy', scan_item, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>
+
+<br />
+<%= link_to 'Scan In New Inventory', new_scan_item_path(:parent_scan_id => @scan.id) %> |
+<%= link_to 'Edit Scan Batch Details', edit_scan_path(@scan) %> |
 <%= link_to 'Back', scans_path %>

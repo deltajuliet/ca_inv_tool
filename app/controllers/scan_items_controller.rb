@@ -24,12 +24,16 @@ class ScanItemsController < ApplicationController
   # GET /scan_items/new
   # GET /scan_items/new.json
   def new
+    puts @scan_id = params[:parent_scan_id].to_i
     @scan_item = ScanItem.new
+    @scan_item.import_scan(@scan_id)
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @scan_item }
-    end
+    render 'scan_items/new'
+
+    #respond_to do |format|
+    #  format.html # new.html.erb
+    #  format.json { render :json => @scan_item }
+    #end
   end
 
   # GET /scan_items/1/edit
@@ -40,6 +44,7 @@ class ScanItemsController < ApplicationController
   # POST /scan_items
   # POST /scan_items.json
   def create
+    puts @scan_id = params[:parent_scan_id].to_i
     @scan_item = ScanItem.new(params[:scan_item])
 
     respond_to do |format|
@@ -60,7 +65,7 @@ class ScanItemsController < ApplicationController
 
     respond_to do |format|
       if @scan_item.update_attributes(params[:scan_item])
-        format.html { redirect_to @scan_item, :notice => 'Scan item was successfully updated.' }
+        format.html { redirect_to @scan_item.scan, :notice => 'Scan item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

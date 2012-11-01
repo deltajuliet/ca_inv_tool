@@ -2,9 +2,10 @@
 
 <table>
   <tr>
+    <th>Batch ID</th>
     <th>Title</th>
-    <th>Finished</th>
-    <th>Imported</th>
+    <th>Finished?</th>
+    <th>Imported?</th>
     <th>Date Added</th>
     <th>Last Updated</th>
     <th></th>
@@ -14,12 +15,13 @@
 
 <% @scans.each do |scan| %>
   <tr>
+    <td><%= scan.id%></td>
     <td><%= scan.title %></td>
     <td><%= scan.finished %></td>
     <td><%= scan.imported %></td>
     <td><%= scan.created_at %></td>
     <td><%= scan.updated_at %></td>
-    <td><%= link_to 'Show', scan %></td>
+    <td><%= link_to 'Scan Items/View Batch', scan %></td>
     <td><%= link_to 'Edit', edit_scan_path(scan) %></td>
     <td><%= link_to 'Destroy', scan, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
@@ -28,6 +30,4 @@
 
 <br />
 
-<%= link_to 'New Scan', new_scan_path %>
-
-<p><%= link_to 'Go Home', welcome_index_path %></p>
+<%= link_to 'New Scan Batch', new_scan_path %> | <%= link_to 'Go Home', welcome_index_path %>
