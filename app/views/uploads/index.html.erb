@@ -1,9 +1,9 @@
 <h1>Inventory File Upload</h1>
-<p>This will delete all of the inventory data currently in the database and add only what is uploaded.</p>
+<p>This will delete all of the inventory data currently in the database and add only what is uploaded. After clicking 'Upload File' please wait. The page will refresh once the inventory is added.</p>
 <%= form_for @upload, :html => {:multipart => true} do |f|%>
 <p>
   <%= f.file_field :upload %>
-  <%= f.submit 'Upload File' %>
+  <%= f.submit 'Upload File', disable_with: "Working..."%>
 </p>
 <% end %>
 <br />

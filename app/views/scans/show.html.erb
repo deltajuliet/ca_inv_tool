@@ -15,6 +15,16 @@
   <%= @scan.imported %>
 </p>
 
+<p>
+  <b>Date Added:</b>
+  <%= @scan.created_at %>
+</p>
+
+<p>
+  <b>Last Updated:</b>
+  <%= @scan.updated_at %>
+</p>
+
 
 <%= link_to 'Edit', edit_scan_path(@scan) %> |
 <%= link_to 'Back', scans_path %>

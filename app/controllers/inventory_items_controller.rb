@@ -4,6 +4,8 @@ class InventoryItemsController < ApplicationController
   def index
     @inventory_items = InventoryItem.all
 
+    @inventory_items = Kaminari.paginate_array(@inventory_items).page(params[:page]).per(250) unless @inventory_items.nil?
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @inventory_items }

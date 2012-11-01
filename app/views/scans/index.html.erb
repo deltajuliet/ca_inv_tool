@@ -1,10 +1,12 @@
-<h1>Listing scans</h1>
+<h1>Listing Scan Batches</h1>
 
 <table>
   <tr>
     <th>Title</th>
     <th>Finished</th>
     <th>Imported</th>
+    <th>Date Added</th>
+    <th>Last Updated</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,6 +17,8 @@
     <td><%= scan.title %></td>
     <td><%= scan.finished %></td>
     <td><%= scan.imported %></td>
+    <td><%= scan.created_at %></td>
+    <td><%= scan.updated_at %></td>
     <td><%= link_to 'Show', scan %></td>
     <td><%= link_to 'Edit', edit_scan_path(scan) %></td>
     <td><%= link_to 'Destroy', scan, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>

@@ -1,11 +1,16 @@
-<h1 xmlns="http://www.w3.org/1999/html">Welcome to the GYG CA Inventory Management System</h1>
+<h1><center>Welcome to the GYG CA Inventory Management System</center></h1>
 <p>
-  <em>What do you need to do?</em><br />
-  --Inventory Importing--<br />
+  <b><em>What do you need to do?</em></b><br /><br />
+  <em>
+    --Inventory Management--<br />
+  </em>
   <%= link_to 'Add Inventory Items from File', uploads_path %><br />
   <%= link_to 'View/Modify Inventory Items', inventory_items_path %><br />
-  <%= link_to 'View/Modify Scans', scans_path %><br />
+  <%= link_to 'Create/View/Modify Scan Batch', scans_path %><br />
+  <%= link_to 'Bring in Incoming Inventory', scan_items_path %><br />
   <br />
-  --Other Tools--<br />
+  <em>
+    --Other Tools--<br />
+  </em>
   Compare CA Export to Scanned Inventory File -- Coming Soon!
 </p>

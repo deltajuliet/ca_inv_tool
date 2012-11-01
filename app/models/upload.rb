@@ -9,6 +9,7 @@ class Upload < ActiveRecord::Base
     @filename = path
     # write the file
     File.open(path, "wb") { |f| f.write(upload['upload'].read) }
+    add_items_to_database
   end
 
   def add_items_to_database
@@ -125,6 +126,7 @@ class Upload < ActiveRecord::Base
 
       item.save
     end
+    cleanup
   end
 
   def cleanup
