@@ -16,7 +16,7 @@ class FileComparison < ActiveRecord::Base
 
   def parse_ca_inventory_file(compare)
     name = compare['ca_inv_filename'].original_filename
-    directory = "public/data"
+    directory = "public"
     # create the file path
     path = File.join(directory, name)
     @ca_inv_filename = path
@@ -26,7 +26,7 @@ class FileComparison < ActiveRecord::Base
 
   def parse_scanned_inventory_file(compare)
     name = compare['scanned_inv_filename'].original_filename
-    directory = "public/data"
+    directory = "public"
     # create the file path
     path = File.join(directory, name)
     @scanned_inv_filename = path

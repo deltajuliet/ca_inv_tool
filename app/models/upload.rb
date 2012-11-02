@@ -3,7 +3,7 @@ class Upload < ActiveRecord::Base
 
   def parse_inventory_file(upload)
     name =  upload['upload'].original_filename
-    directory = "public/data"
+    directory = "public"
     # create the file path
     path = File.join(directory, name)
     @filename = path
