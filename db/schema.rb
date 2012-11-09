@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121109093141) do
+ActiveRecord::Schema.define(:version => 20121109095038) do
 
   create_table "file_comparisons", :force => true do |t|
     t.string   "ca_inv_filename"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20121109093141) do
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.boolean  "include_ca_zeros"
+    t.string   "include_ca_compare"
   end
 
   create_table "inventory_items", :force => true do |t|

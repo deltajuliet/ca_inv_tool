@@ -4,7 +4,9 @@
 <p>
   CA Inventory Export (Export straight from CA as .txt file): <%= f.file_field :ca_inv_filename %><br/>
   Scanned Inventory File (Export directly from scan batch, this is a .csv file): <%= f.file_field :scanned_inv_filename %><br/>
-  Include CA Inventory Not Scanned with Zero Quantity in Results: <%= f.check_box :include_ca_zeros %><br/><br/>
+  Additional Options for Comparisons:<br/>
+  Include CA Inventory that was not scanned: <%= f.check_box :include_ca_compare %><br/>
+  Include CA Inventory not scanned with zero quantity in results: <%= f.check_box :include_ca_zeros %><br/><br/>
   <%= f.submit 'Upload Files', disable_with: "Working..."%>
 </p>
 <% end %>

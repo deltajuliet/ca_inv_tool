@@ -1,9 +1,11 @@
 class FileComparison < ActiveRecord::Base
-  attr_accessible :ca_inv_filename, :scanned_inv_filename, :include_ca_zeros
+  attr_accessible :ca_inv_filename, :scanned_inv_filename, :include_ca_zeros, :include_ca_compare
   attr_reader :csv_data
 
   def run_comparison(params)
     @include_ca_zeros = params['include_ca_zeros']
+    @include_ca_compare = params['include_ca_compare']
+    @include_ca_compare = @include_ca_zeros if @include_ca_zeros == "1"
     parse_ca_inventory_file(params)
     parse_scanned_inventory_file(params)
     @ca_inv_array = []
@@ -365,7 +367,14 @@ class FileComparison < ActiveRecord::Base
 
   def compare
     @items_with_wrong_qty = []
-    @items_in_ca_not_scanned = @ca_inv_array
+
+    if @include_ca_compare == "1"
+      @items_in_ca_not_scanned = @ca_inv_array
+    else
+      @items_in_ca_not_scanned = []
+    end
+
+
     puts "COMPARING NOW"
     puts @scanned_inv_array.inspect
     @scanned_inv_array.each do |scanned_item|
