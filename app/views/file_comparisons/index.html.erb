@@ -1,9 +1,10 @@
 <h1>File Comparison</h1>
-<p>This compares a CA Inventory Export to a 'In Inventory' export. The page will refresh once the inventory is added.</p>
+<p>This compares a CA Inventory Export to a 'In Inventory' export. The page will refresh once the inventory is added. Make sure that you have also done a full export upload into the main inventory database before comparison.</p>
 <%= form_for @file_compare, :html => {:multipart => true} do |f|%>
 <p>
-  CA Inventory Export: <%= f.file_field :ca_inv_filename %><br/>
-  Scanned Inventory File: <%= f.file_field :scanned_inv_filename %><br/><br/>
+  CA Inventory Export (Export straight from CA as .txt file): <%= f.file_field :ca_inv_filename %><br/>
+  Scanned Inventory File (Export directly from scan batch, this is a .csv file): <%= f.file_field :scanned_inv_filename %><br/>
+  Include CA Inventory Not Scanned with Zero Quantity in Results: <%= f.check_box :include_ca_zeros %><br/><br/>
   <%= f.submit 'Upload Files', disable_with: "Working..."%>
 </p>
 <% end %>

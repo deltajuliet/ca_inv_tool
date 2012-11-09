@@ -1,10 +1,11 @@
 class FileComparison < ActiveRecord::Base
-  attr_accessible :ca_inv_filename, :scanned_inv_filename
+  attr_accessible :ca_inv_filename, :scanned_inv_filename, :include_ca_zeros
   attr_reader :csv_data
 
-  def run_comparison(ca_filename, scanned_filename)
-    parse_ca_inventory_file(ca_filename)
-    parse_scanned_inventory_file(scanned_filename)
+  def run_comparison(params)
+    @include_ca_zeros = params['include_ca_zeros']
+    parse_ca_inventory_file(params)
+    parse_scanned_inventory_file(params)
     @ca_inv_array = []
     @scanned_inv_array = []
     parse_file(@ca_inv_filename, 'ca_file')
@@ -41,9 +42,11 @@ class FileComparison < ActiveRecord::Base
     converted_inv_file = []
 
     if type == "ca_file"
+      puts "Beginning CA Inv File"
 
       inv_file.each do |line|
         conv_line = line.encode('UTF-16le', :invalid => :replace, :replace => '').encode('UTF-8')
+        puts conv_line.inspect
         converted_inv_file.push(conv_line)
       end
 
@@ -146,7 +149,7 @@ class FileComparison < ActiveRecord::Base
         item[:labels] = row[header_hash[:labels]] unless header_hash[:labels].nil?
         item[:flag] = row[header_hash[:flags]] unless header_hash[:flags].nil?
         item[:classification] = row[header_hash[:classification]] unless header_hash[:classification].nil?
-
+        puts item.inspect
         @ca_inv_array.push(item)
       end
 
@@ -263,7 +266,7 @@ class FileComparison < ActiveRecord::Base
 
   end
 
-  def return_wrong_qtys(array_of_wrong_skus)
+  def return_wrong_qtys
     @column_names = [
         "Auction Title",
         "Inventory Number",
@@ -291,7 +294,7 @@ class FileComparison < ActiveRecord::Base
 
     csv = CSV.generate(:force_quotes => true) do |line|
       line << @column_names
-      array_of_wrong_skus.each do |item|
+      @items_with_wrong_qty.each do |item|
         ca_inv_item = InventoryItem.find_by_inventory_number(item[:inventory_number])
         puts "DETECTED WRONG QTY"
         puts item
@@ -320,6 +323,41 @@ class FileComparison < ActiveRecord::Base
             item[:classification]]
         line << column_data
       end
+
+      unless @items_in_ca_not_scanned.count == 0
+        line << [""]
+        line << ["--- ITEMS IN CA THAT WERE NOT SCANNED ---"] unless @include_ca_zeros == "0"
+        line << ["--- ITEMS IN CA THAT WERE NOT SCANNED WITH QUANTITIES > 1 ---"] unless @include_ca_zeros == "1"
+
+        @items_in_ca_not_scanned.each do |item|
+          puts "IN CA NOT SCANNED!"
+          puts item
+          column_data = [
+              item[:auction_title],
+              item[:inventory_number],
+              "ABSOLUTE",
+              item[:total_quantity],
+              "",
+              item[:weight],
+              item[:upc],
+              item[:asin],
+              item[:mpn],
+              item[:description],
+              item[:brand],
+              item[:starting_bid],
+              item[:seller_cost],
+              item[:buy_it_now_price],
+              item[:retail_price],
+              item[:channel_advisor_store_price],
+              item[:second_chance_offer_price],
+              item[:picture_urls],
+              item[:received_in_inventory],
+              item[:labels],
+              item[:flag],
+              item[:classification]]
+          line << column_data
+        end
+      end
     end
 
     return csv
@@ -327,19 +365,35 @@ class FileComparison < ActiveRecord::Base
 
   def compare
     @items_with_wrong_qty = []
+    @items_in_ca_not_scanned = @ca_inv_array
     puts "COMPARING NOW"
     puts @scanned_inv_array.inspect
     @scanned_inv_array.each do |scanned_item|
       @ca_inv_array.each do |ca_item|
         if scanned_item[:inventory_number] == ca_item[:inventory_number]
-          if scanned_item[:quantity] != ca_item[:total_quantity]
+          if scanned_item[:scanned_quantity] != ca_item[:total_quantity]
             @items_with_wrong_qty.push(scanned_item)
           end
         end
       end
     end
 
-    return_wrong_qtys(@items_with_wrong_qty)
+    if @include_ca_zeros == "0"
+      @items_in_ca_not_scanned.delete_if do |item|
+        item[:total_quantity] == "0"
+      end
+    end
+
+    scanned_skus = []
+    @scanned_inv_array.each do |item|
+      scanned_skus.push(item[:inventory_number])
+    end
+
+    @items_in_ca_not_scanned.delete_if do |item|
+      scanned_skus.include?(item[:inventory_number])
+    end
+
+    return_wrong_qtys
   end
 
   def cleanup(filename)
