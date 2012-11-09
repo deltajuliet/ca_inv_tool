@@ -6,6 +6,9 @@
   Scanned Inventory File (Export directly from scan batch, this is a .csv file): <%= f.file_field :scanned_inv_filename %><br/>
   Additional Options for Comparisons:<br/>
   Include CA Inventory that was not scanned: <%= f.check_box :include_ca_compare %><br/>
+  <script type="text/javascript" language="JavaScript">
+      document.forms['new_file_comparison'].elements['file_comparison_include_ca_compare'].checked=true;
+  </script>
   Include CA Inventory not scanned with zero quantity in results: <%= f.check_box :include_ca_zeros %><br/><br/>
   <%= f.submit 'Upload Files', disable_with: "Working..."%>
 </p>
